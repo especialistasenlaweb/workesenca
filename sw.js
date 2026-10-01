@@ -1,4 +1,4 @@
-const CACHE="mi-cache-v1"
+const CACHE="mi-cache-v2"
 const RECURSOS=[
     "./",
     "./sw.js",
@@ -22,8 +22,8 @@ self.addEventListener("fetch",event=>{
         .then(respuesta =>{
             return respuesta || fetch(event.request);
         })
-        .catch()=>{
+        .catch(()=>{
             return caches.match("./offline.html")
-        }
+        })
     )
 })
